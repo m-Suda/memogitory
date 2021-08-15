@@ -1,3 +1,39 @@
 :host {
-  
+  display: block;
+}
+
+.header {
+  .toolbar {
+    height: 40px;
+    .toolbar__spacer {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.form {
+  margin-top: 32px;
+  padding: 0 24px;
+
+  .form__item {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .inline-form {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer {
+  margin-top: 32px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: flex-end;
+
+  .footer__button {
+    width: 120px;
+  }
 }

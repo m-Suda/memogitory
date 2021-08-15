@@ -1,3 +1,78 @@
-<h2>Home</h2>
+<header class="header">
+  <mat-toolbar class="toolbar">
+    <span class="toolbar__spacer"></span>
+    <button mat-icon-button routerLink="settings">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
 
-<button mat-button routerLink="settings">Hoge</button>
+<form class="form" [formGroup]="formGroup">
+
+  <div class="form__item">
+    <mat-checkbox formControlName="private">Private</mat-checkbox>
+  </div>
+
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>URL</mat-label>
+      <input matInput formControlName="url">
+    </mat-form-field>
+  </div>
+
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+  </div>
+
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>Content</mat-label>
+      <textarea matInput
+                formControlName="content"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="5"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="form__item inline-form">
+    <mat-form-field  appearance="standard">
+      <mat-label>Tags</mat-label>
+      <input matInput
+             formControlName="tags"
+             (focus)="openMenu()"
+             [matMenuTriggerFor]="menu">
+    </mat-form-field>
+    <button mat-flat-button
+            color="accent"
+            (click)="addTag()">Add</button>
+  </div>
+  <mat-menu #menu="matMenu">
+    <button *ngFor="let tag of dataSource.filteredData"
+            mat-menu-item
+            (click)="selectTag(tag)">{{tag}}</button>
+  </mat-menu>
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of addTags"
+              (removed)="removeTag(tag)">
+      {{tag}}<mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>viaURL</mat-label>
+      <input matInput formControlName="viaURL">
+    </mat-form-field>
+  </div>
+
+</form>
+
+<footer class="footer">
+  <button class="footer__button"
+          mat-flat-button
+          color="accent"
+          (click)="post()">Post</button>
+</footer>
