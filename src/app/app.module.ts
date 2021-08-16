@@ -18,6 +18,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
+import { GithubComponent } from './pages/settings/github/github.component';
+import { MatListModule } from '@angular/material/list';
 
 const components = [
   AppComponent,
@@ -35,10 +37,11 @@ const materialModules = [
   MatAutocompleteModule,
   MatOptionModule,
   MatChipsModule,
+  MatListModule,
 ];
 
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, GithubComponent],
   imports: [
     BrowserModule,
     FormsModule,

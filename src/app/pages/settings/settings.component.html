@@ -1,1 +1,15 @@
-<p>settings works!</p>
+<header class="header">
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button routerLink="/">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
+
+<div class="main">
+  <mat-selection-list [multiple]="false">
+    <mat-divider></mat-divider>
+    <mat-list-option routerLink="github">GitHub</mat-list-option>
+    <mat-divider></mat-divider>
+  </mat-selection-list>
+</div>

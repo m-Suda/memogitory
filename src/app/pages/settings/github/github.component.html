@@ -1,0 +1,39 @@
+<header class="header">
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button routerLink="../">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
+
+<form class="form" [formGroup]="formGroup">
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>Account Name</mat-label>
+      <input matInput
+             formControlName="accountName">
+    </mat-form-field>
+  </div>
+
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>Access Token</mat-label>
+      <input [type]="tokenVisible ? 'text' : 'password'"
+             matInput
+             formControlName="accessToken">
+      <button *ngIf="tokenVisible" matSuffix mat-icon-button (click)="tokenVisible = false">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button *ngIf="!tokenVisible" matSuffix mat-icon-button (click)="tokenVisible = true">
+        <mat-icon>visibility_off</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</form>
+
+<footer class="footer">
+  <button class="footer__button"
+          mat-flat-button
+          color="accent"
+          (click)="save()">Save</button>
+</footer>

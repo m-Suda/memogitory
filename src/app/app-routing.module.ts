@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { GithubComponent } from './pages/settings/github/github.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-    component: SettingsComponent
+    component: SettingsComponent,
+  },
+  {
+    path: 'settings/github',
+    component: GithubComponent
   },
 ];
 

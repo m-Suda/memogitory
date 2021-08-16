@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.main {
+  mat-selection-list {
+    padding: 0;
+  }
+}
+
+.header {
+  .toolbar {
+    height: 40px;
+  }
+}
