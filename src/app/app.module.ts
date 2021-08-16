@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatOptionModule } from '@angular/material/core';
 
 const components = [
   AppComponent,
@@ -30,7 +32,8 @@ const materialModules = [
   MatCheckboxModule,
   MatFormFieldModule,
   MatInputModule,
-  MatMenuModule,
+  MatAutocompleteModule,
+  MatOptionModule,
   MatChipsModule,
 ];
 

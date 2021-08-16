@@ -42,18 +42,16 @@
       <mat-label>Tags</mat-label>
       <input matInput
              formControlName="tags"
-             (focus)="openMenu()"
-             [matMenuTriggerFor]="menu">
+              [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let tag of dataSource.filteredData"
+                    [value]="tag">{{tag}}</mat-option>
+      </mat-autocomplete>
     </mat-form-field>
     <button mat-flat-button
             color="accent"
             (click)="addTag()">Add</button>
   </div>
-  <mat-menu #menu="matMenu">
-    <button *ngFor="let tag of dataSource.filteredData"
-            mat-menu-item
-            (click)="selectTag(tag)">{{tag}}</button>
-  </mat-menu>
   <mat-chip-list>
     <mat-chip *ngFor="let tag of addTags"
               (removed)="removeTag(tag)">

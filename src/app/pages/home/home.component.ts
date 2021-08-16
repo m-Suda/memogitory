@@ -1,8 +1,7 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +19,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   });
   private subscription: Subscription;
 
-  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
   public allTags = [
     'javascript',
     'typescript',
@@ -47,13 +45,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
-  }
-
-  /**
-   * タグ一覧メニューを開く。
-   */
-  public openMenu() {
-    this.trigger.openMenu();
   }
 
   /**
