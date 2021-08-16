@@ -11,7 +11,6 @@ export class GithubComponent implements OnInit {
     accountName: this.fb.control(null),
     accessToken: this.fb.control(null),
   });
-  public tokenVisible = false;
 
   constructor(private fb: FormBuilder) {}
 

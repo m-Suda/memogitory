@@ -18,15 +18,9 @@
   <div class="form__item">
     <mat-form-field appearance="standard">
       <mat-label>Access Token</mat-label>
-      <input [type]="tokenVisible ? 'text' : 'password'"
+      <input type="text"
              matInput
              formControlName="accessToken">
-      <button *ngIf="tokenVisible" matSuffix mat-icon-button (click)="tokenVisible = false">
-        <mat-icon>visibility</mat-icon>
-      </button>
-      <button *ngIf="!tokenVisible" matSuffix mat-icon-button (click)="tokenVisible = true">
-        <mat-icon>visibility_off</mat-icon>
-      </button>
     </mat-form-field>
   </div>
 </form>
