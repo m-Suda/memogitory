@@ -20,6 +20,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
 import { GithubComponent } from './pages/settings/github/github.component';
 import { MatListModule } from '@angular/material/list';
+import { HubmemoDirComponent } from './pages/settings/hubmemo-dir/hubmemo-dir.component';
 
 const components = [
   AppComponent,
@@ -41,7 +42,7 @@ const materialModules = [
 ];
 
 @NgModule({
-  declarations: [...components, GithubComponent],
+  declarations: [...components, GithubComponent, HubmemoDirComponent],
   imports: [
     BrowserModule,
     FormsModule,

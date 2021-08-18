@@ -1,0 +1,25 @@
+<header class="header">
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button routerLink="../">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
+
+<form class="form" [formGroup]="formGroup">
+  <div class="form__item">
+    <mat-form-field appearance="standard">
+      <mat-label>Directory Path</mat-label>
+      <input matInput
+             formControlName="hubmemoDirPath">
+    </mat-form-field>
+    <mat-hint>※ローカルにcloneしたhubmemoリポジトリのディレクトリを指定してください。</mat-hint>
+  </div>
+</form>
+
+<footer class="footer">
+  <button class="footer__button"
+          mat-flat-button
+          color="accent"
+          (click)="save()">Save</button>
+</footer>
