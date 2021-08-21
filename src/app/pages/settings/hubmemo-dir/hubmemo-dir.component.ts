@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { HubmemoDirService } from '../../../services/hubmemo-dir.service';
 
 @Component({
     selector: 'app-hubmemo-dir',
@@ -7,17 +8,18 @@ import { FormBuilder } from '@angular/forms';
     styleUrls: ['./hubmemo-dir.component.scss'],
 })
 export class HubmemoDirComponent implements OnInit {
-    public formGroup = this.fb.group({
-        hubmemoDirPath: this.fb.control(null),
-    });
+    public hubmemoDirPathForm = new FormControl(null);
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private _hubmemoDir: HubmemoDirService) {}
 
     ngOnInit(): void {
-        // TODO: StorageからAccountsを取得して
+        const { path } = this._hubmemoDir.data;
+        this.hubmemoDirPathForm.setValue(path);
     }
 
     public save() {
-        console.log(this.formGroup.getRawValue());
+        this._hubmemoDir.add({
+            path: this.hubmemoDirPathForm.value,
+        });
     }
 }

@@ -6,24 +6,24 @@ import { StorageService } from './storage.service';
     providedIn: 'root',
 })
 export class TagsService {
-    private readonly path: string;
+    private readonly _path: string;
     private _data: string[];
 
     constructor(
-        private electron: ElectronService,
-        private storage: StorageService
+        private _electron: ElectronService,
+        private _storage: StorageService
     ) {
-        this.path = this.electron.path.join(
-            this.electron.app.getPath('userData'),
+        this._path = this._electron.path.join(
+            this._electron.app.getPath('userData'),
             `tags.json`
         );
-        if (!this.storage.has(this.path)) {
+        if (!this._storage.has(this._path)) {
             const defaultData: string[] = [];
-            this.storage.create(this.path, JSON.stringify(defaultData));
+            this._storage.create(this._path, JSON.stringify(defaultData));
             this._data = defaultData;
             return;
         }
-        this._data = this.storage.get<string[]>(this.path);
+        this._data = this._storage.get<string[]>(this._path);
     }
 
     public get data(): string[] {
@@ -35,7 +35,7 @@ export class TagsService {
         newTags.forEach((tag) => {
             saveTag.push(tag);
         });
-        this.storage.set(this.path, saveTag);
+        this._storage.set(this._path, saveTag);
         this._data = saveTag;
     }
 }

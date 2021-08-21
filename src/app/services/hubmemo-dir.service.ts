@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { StorageService } from './storage.service';
 import { ElectronService } from './electron.service';
+import { StorageService } from './storage.service';
+import { Accounts } from './accounts.service';
 
-export type Accounts = {
-    userName: string;
-    accessToken: string;
+export type HubmemoDir = {
+    path: string;
 };
 
 @Injectable({
     providedIn: 'root',
 })
-export class AccountsService {
+export class HubmemoDirService {
     private readonly _path;
-    private _data: Accounts | null = null;
+    private _data: HubmemoDir | null = null;
 
     constructor(
         private _electron: ElectronService,
@@ -20,25 +20,24 @@ export class AccountsService {
     ) {
         this._path = this._electron.path.join(
             this._electron.app.getPath('userData'),
-            `accounts.json`
+            `hubmemo-dir.json`
         );
         if (!this._storage.has(this._path)) {
-            const defaultData: Accounts = {
-                userName: '',
-                accessToken: '',
+            const defaultData: HubmemoDir = {
+                path: '',
             };
             this._storage.create(this._path, JSON.stringify(defaultData));
             this._data = defaultData;
             return;
         }
-        this._data = this._storage.get<Accounts>(this._path);
+        this._data = this._storage.get<HubmemoDir>(this._path);
     }
 
-    public get data(): Accounts {
+    public get data(): HubmemoDir {
         return this._data;
     }
 
-    public add(data: Accounts): void {
+    public add(data: HubmemoDir): void {
         this._storage.set(this._path, data);
         this._data = data;
     }

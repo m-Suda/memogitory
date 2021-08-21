@@ -6,12 +6,11 @@
   </mat-toolbar>
 </header>
 
-<form class="form" [formGroup]="formGroup">
+<form class="form">
   <div class="form__item">
     <mat-form-field appearance="standard">
       <mat-label>Directory Path</mat-label>
-      <input matInput
-             formControlName="hubmemoDirPath">
+      <input matInput [formControl]="hubmemoDirPathForm">
     </mat-form-field>
     <mat-hint>※ローカルにcloneしたhubmemoリポジトリのディレクトリを指定してください。</mat-hint>
   </div>
